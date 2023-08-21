@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 400px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        select, input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+        h1 {
+            text-align: center; /* Center align the text */
+            font-size: 14px; /* Set the font size to 14 */
+            font-weight: bold; /* Make the text bold */
+        }
+
+        prediction-result-box {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Winning Team Prediction</h1>
+    <form action="/team-prediction" method="post">
+        <label for="team1">Select Team 1:</label>
+        <select id="team1" name="team1">
+            <option value="Mumbai Indians">Mumbai Indians</option>
+            <option value="Chennai Super Kings">Chennai Super Kings</option>
+            <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+            <option value="Kings XI Punjab">Kings XI Punjab</option>
+            <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+            <option value="Rajasthan Royals">Rajasthan Royals</option>
+            <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+            <option value="Delhi Daredevils">Delhi Daredevils</option>
+            <option value="Deccan Chargers">Deccan Chargers</option>
+            <option value="Delhi Capitals">Delhi Capitals</option>
+        </select>
+        
+        <label for="team2">Select Team 2:</label>
+        <select id="team2" name="team2">
+            <option value="Mumbai Indians">Mumbai Indians</option>
+            <option value="Chennai Super Kings">Chennai Super Kings</option>
+            <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+            <option value="Kings XI Punjab">Kings XI Punjab</option>
+            <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+            <option value="Rajasthan Royals">Rajasthan Royals</option>
+            <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+            <option value="Delhi Daredevils">Delhi Daredevils</option>
+            <option value="Deccan Chargers">Deccan Chargers</option>
+            <option value="Delhi Capitals">Delhi Capitals</option>
+        </select>
+        <label for="venue">Select Venue:</label>
+        <select id="venue" name="venue">
+            <option value="Subrata Roy Sahara Stadium">Subrata Roy Sahara Stadium</option>
+            <option value="Shaheed Veer Narayan Singh International Stadium">Shaheed Veer Narayan Singh International Stadium</option>
+            <option value="JSCA International Stadium Complex">JSCA International Stadium Complex</option>
+            <option value="Sheikh Zayed Stadium">Sheikh Zayed Stadium</option>
+            <option value="M Chinnaswamy Stadium">M Chinnaswamy Stadium</option>
+            <option value="Punjab Cricket Association Stadium, Mohali">Punjab Cricket Association Stadium, Mohali</option>
+            <option value="Feroz Shah Kotla">Feroz Shah Kotla</option>
+            <option value="Wankhede Stadium">Wankhede Stadium</option>
+            <option value="Eden Gardens">Eden Gardens</option>
+            <option value="Sawai Mansingh Stadium">Sawai Mansingh Stadium</option>
+            <option value="Rajiv Gandhi International Stadium, Uppal">Rajiv Gandhi International Stadium, Uppal</option>
+            <option value="MA Chidambaram Stadium, Chepauk">MA Chidambaram Stadium, Chepauk</option>
+            <option value="Dr DY Patil Sports Academy">Dr DY Patil Sports Academy</option>
+            <option value="Newlands">Newlands</option>
+            <option value="St George's Park">St George's Park</option>
+            <option value="Kingsmead">Kingsmead</option>
+            <option value="SuperSport Park">SuperSport Park</option>
+            <option value="Buffalo Park">Buffalo Park</option>
+            <option value="New Wanderers Stadium">New Wanderers Stadium</option>
+            <option value="De Beers Diamond Oval">De Beers Diamond Oval</option>
+            <option value="OUTsurance Oval">OUTsurance Oval</option>
+            <option value="Brabourne Stadium">Brabourne Stadium</option>
+            <option value="Sardar Patel Stadium, Motera">Sardar Patel Stadium, Motera</option>
+            <option value="Barabati Stadium">Barabati Stadium</option>
+            <option value="Vidarbha Cricket Association Stadium, Jamtha">Vidarbha Cricket Association Stadium, Jamtha</option>
+            <option value="Himachal Pradesh Cricket Association Stadium">Himachal Pradesh Cricket Association Stadium</option>
+            <option value="Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium">Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium</option>
+            <option value="Sharjah Cricket Stadium">Sharjah Cricket Stadium</option>
+            <option value="Dubai International Cricket Stadium">Dubai International Cricket Stadium</option>
+            <option value="Maharashtra Cricket Association Stadium">Maharashtra Cricket Association Stadium</option>
+            <option value="Punjab Cricket Association IS Bindra Stadium, Mohali">Punjab Cricket Association IS Bindra Stadium, Mohali</option>
+            <option value="Holkar Cricket Stadium">Holkar Cricket Stadium</option>
+            <!-- Add more venue options as needed -->
+        </select>
+        <label for="runsLeft">Runs Left:</label>
+        <input type="number" id="runsLeft" name="runsLeft" min="0">
+        
+        <label for="ballsLeft">Balls Left:</label>
+        <input type="number" id="ballsLeft" name="ballsLeft" min="0">
+        
+        <label for="wicketsLeft">Wickets Left:</label>
+        <input type="number" id="wicketsLeft" name="wicketsLeft" min="0" max="10">
+        
+        <button type="submit" class="prediction-button">Predict Team</button>
+    </form>
+    
+</body>
+</html>
+  

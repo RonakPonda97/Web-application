@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #topBatsmen,
+        #topBowlers {
+            display: none; /* Hide the lists by default */
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Top 10 Batsmen and Bowlers</h1>
+    <button id="showTopBatsmen">Show Top 10 Batsmen</button>
+    <button id="showTopBowlers">Show Top 10 Bowlers</button>
+
+    <div id="topBatsmen">
+        <h2>Top 10 Batsmen</h2>
+        <ul>
+            <li>Batsman 1</li>
+            <li>Batsman 2</li>
+            <li>Batsman 3</li>
+            <!-- Add more batsmen -->
+        </ul>
+    </div>
+
+    <div id="topBowlers">
+        <h2>Top 10 Bowlers</h2>
+        <ul>
+            <li>Bowler 1</li>
+            <li>Bowler 2</li>
+            <li>Bowler 3</li>
+            <!-- Add more bowlers -->
+        </ul>
+    </div>
+
+    <script>
+        const showTopBatsmenButton = document.getElementById('showTopBatsmen');
+        const showTopBowlersButton = document.getElementById('showTopBowlers');
+        const topBatsmen = document.getElementById('topBatsmen');
+        const topBowlers = document.getElementById('topBowlers');
+
+        showTopBatsmenButton.addEventListener('click', () => {
+            topBatsmen.style.display = 'block';
+            topBowlers.style.display = 'none';
+        });
+
+        showTopBowlersButton.addEventListener('click', () => {
+            topBowlers.style.display = 'block';
+            topBatsmen.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

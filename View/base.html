@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <title>{% block title %}Cricket Website{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Add custom Cricket-themed CSS styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='cricket.css') }}">
+</head>
+<body>
+  <nav>
+    <h1>Cricket Website</h1>
+    <ul>
+      <!-- Modify navigation links based on your content -->
+      <li><a href="#">Team Selection</a></li>
+      <li><a href="#">Player Techniques</a></li>
+      <li><a href="#">Team Prediction</a></li>
+      <li><a href="#">Future</a></li>
+    </ul>
+  </nav>
+  <section class="content">
+    <header>
+      <h2>{% block header %}{% endblock %}</h2>
+    </header>
+    {% for message in get_flashed_messages() %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
+    {% block content %}{% endblock %}
+  </section>
+</body>
+</html>
